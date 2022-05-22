@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Login from './Pages/Login/Login';
 import Upload from './Pages/Upload/Upload';
 import Products from './Pages/Products/Products';
+import Register from './Register/Register';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -15,10 +17,15 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/' element={<Home></Home>}></Route>
         <Route path='/products' element={<Products></Products>}></Route>
-        <Route path='/upload' element={<Upload></Upload>}></Route>
+        <Route path='/upload' element={
+          <PrivateRoute>
+            <Upload></Upload>
+          </PrivateRoute>}>
+        </Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
