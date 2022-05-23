@@ -8,8 +8,6 @@ import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/a
 const Login = () => {
 
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    console.log(user);
-    console.log(error);
 
     const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
 
@@ -34,8 +32,6 @@ const Login = () => {
                     <div>
                         <p className='mt-2'>New to Warehouse? <Link to='/register'>Register</Link></p>
                     </div>
-
-
                 </form>
                 <div
                     className='mt-2 d-flex justify-content-lg-center justify-content-md-evenly justify-content-sm-between'>
