@@ -8,7 +8,7 @@ const Header = () => {
     const [user, loading, error] = useAuthState(auth);
 
     return (
-        <div>
+        <div className='sticky-top'>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +26,10 @@ const Header = () => {
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/upload">Upload Product</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/blog">Blog</Link>
+                            </li>
+
                         </ul>
                         <span className="d-flex">
                             {

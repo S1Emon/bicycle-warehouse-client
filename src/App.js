@@ -10,6 +10,8 @@ import Upload from './Pages/Upload/Upload';
 import Products from './Pages/Products/Products';
 import Register from './Register/Register';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Blog from './Pages/Blog/Blog';
+import NotFound from './Pages/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
