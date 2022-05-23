@@ -6,12 +6,13 @@ import Footer from './Pages/Shared/Footer/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './Pages/Login/Login';
-import Upload from './Pages/Upload/Upload';
 import Products from './Pages/Products/Products';
 import Register from './Register/Register';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Blog from './Pages/Blog/Blog';
 import NotFound from './Pages/Shared/NotFound/NotFound';
+import AddProduct from './Pages/AddProduct/AddProduct';
+import ManageProduct from './Pages/ManageProduct/ManageProduct';
 
 function App() {
   return (
@@ -21,9 +22,19 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/products' element={<Products></Products>}></Route>
-        <Route path='/upload' element={
+        <Route path='/addproduct' element={
           <PrivateRoute>
-            <Upload></Upload>
+            <AddProduct></AddProduct>
+          </PrivateRoute>}>
+        </Route>
+        <Route path='/manage' element={
+          <PrivateRoute>
+            <ManageProduct></ManageProduct>
+          </PrivateRoute>}>
+        </Route>
+        <Route path='/product/:productId' element={
+          <PrivateRoute>
+            <ManageProduct></ManageProduct>
           </PrivateRoute>}>
         </Route>
         <Route path='/login' element={<Login></Login>}></Route>

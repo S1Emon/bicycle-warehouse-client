@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
         return <Navigate to="/login" state={{ from: location }} replace></Navigate>
 
     }
-    if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {
+    if (user.providerData[0]?.providerId === 'password' && !user?.emailVerified) {
         return <div>
             <h2 className='text-danger'>Email address is not verified</h2>
             <h5 className='text-success'>Please verify your email address</h5>

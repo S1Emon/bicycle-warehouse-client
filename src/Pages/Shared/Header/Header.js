@@ -24,16 +24,23 @@ const Header = () => {
                                 <Link className="nav-link active" aria-current="page" to="/products">Products</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/upload">Upload Product</Link>
-                            </li>
-                            <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/blog">Blog</Link>
                             </li>
+                            {
+                                user && <>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/addproduct">Add-Product</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to="/manage">Manage Product</Link>
+                                    </li>
+                                </>
+                            }
 
                         </ul>
                         <span className="d-flex">
                             {
-                                user ? <span>{user.displayName}<button className='btn btn-outline-danger ms-3' onClick={() => signOut(auth)}>Sign out</button></span> : <Link className="btn btn-outline-success" type="submit" to="login">Login</Link>
+                                user ? <span><button className='btn btn-outline-danger ms-3' onClick={() => signOut(auth)}>Sign out</button></span> : <Link className="btn btn-outline-success" type="submit" to="login">Login</Link>
                             }
                         </span>
                     </div>
