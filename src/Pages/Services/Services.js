@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useServices from '../../hooks/useServices';
 
 const Services = () => {
-    const [services] = useServices()
+    const [services] = useServices();
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate(`/services`);
+    }
     return (
         <div className='container'>
             <h3 className='text-primary text-center mt-5 mb-4'>Get Our Special Service</h3>
@@ -17,7 +23,7 @@ const Services = () => {
                                         <h3 className="card-title">{service.name}</h3>
                                         <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     </div>
-                                    <button className='btn btn-outline-primary'>Explore Now</button>
+                                    <button onClick={handleNavigate} className='btn btn-outline-primary'>Explore Now</button>
                                 </div>
                             </div>
                         </div>)

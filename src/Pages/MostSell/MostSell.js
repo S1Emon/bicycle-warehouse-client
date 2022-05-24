@@ -1,6 +1,8 @@
 import React from 'react';
 import useMostSell from '../../hooks/useMostSell';
-import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar } from 'react-icons/ai';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const MostSell = () => {
     const [mostSells] = useMostSell()
@@ -25,6 +27,7 @@ const MostSell = () => {
                             </div>
                         </div>)
                 }
+                <Link className='btn btn-link text-decoration-none mx-auto' to="/mostsells">See all <AiOutlineArrowRight></AiOutlineArrowRight> </Link>
             </div>
         </div>
     );
