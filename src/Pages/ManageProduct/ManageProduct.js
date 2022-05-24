@@ -1,41 +1,62 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useProducts from '../../hooks/useProducts';
+import { toast } from 'react-toastify';
 
 const ManageProduct = () => {
-    const [products, setProducts] = useProducts();
+    // const [products, setProducts] = useProducts();
     const { productId } = useParams();
+    const [product, setProduct] = useState({});
+    const [isDelete, setIsDelete] = useState(false);
+    const [isUpdate, setIsUpdate] = useState();
 
-    const handleDelete = id => {
+    useEffect(() => {
+        const url = `http://localhost:5000/product/${productId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProduct(data)
+            });
+
+    }, [])
+
+    const handleDelete = (id) => {
         const confirm = window.confirm('Are you sure?');
-
         if (confirm) {
-            const url = `https://localhost:5000/product/${id}`
-
-            fetch(url, {
-                method: 'DELETE',
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-
-                }
+            fetch(`http://localhost:5000/product/${id}`, {
+                method: "DELETE",
             })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    const remainProduct = products?.filter(product => product._id !== id)
-                    setProducts(remainProduct);
-                })
+                .then((res) => res.json())
+                .then((data) => {
+                    setIsDelete(!isDelete);
+                    toast(data.success, "Product Deleted");
+                });
         }
     }
     return (
-        <div className='text-center'>
-            <h2 className='mt-3'>Manage Products!</h2>
-            <p>{productId}</p>
-            {
-                products?.map(product => <div key={product._id} >
-                    <h4>{product.name} <button onClick={() => handleDelete(product._id)}>X</button></h4></div>)
-            }
+
+        <div className='container'>
+            <h2 className='mt-3 text-center'>Manage Products!</h2>
+            <div className='row row-cols-1 row-cols-md-3 g-4 justify-content-center mt-4'>
+                <div className="col">
+                    <div className="card h-100">
+                        <img src={product?.image} className="card-img-top" alt="..." />
+                        <div className="card-body">
+                            <h5 className="card-title">{product.name}</h5>
+                            <p className="card-text">Price: {product.price}</p>
+                            <p className="card-text">Quantity: {product.quantity}</p>
+                            <p className="card-text">Details: <small>{product.details}</small></p>
+                            <p className='card-text'>Supplier: {product.supplier}</p>
+                        </div>
+                        <div>
+                            <button className="btn btn-outline-primary w-50">Update Now</button>
+
+                            <button onClick={() => handleDelete(product._id)} className="btn btn-outline-danger w-50">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     );
 };
 

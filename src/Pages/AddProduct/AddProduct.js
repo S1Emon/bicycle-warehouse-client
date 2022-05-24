@@ -14,7 +14,7 @@ const AddProduct = () => {
             body: JSON.stringify(data)
         })
             .then((response) => response.json())
-            .then((data) => toast(data.success));
+            .then((data) => toast(data.success, "New Product Added"));
         event.target.reset();
     };
 

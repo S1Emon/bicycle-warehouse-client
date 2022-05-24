@@ -13,6 +13,8 @@ import Blog from './Pages/Blog/Blog';
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import ManageProduct from './Pages/ManageProduct/ManageProduct';
+import MostSell from './Pages/MostSell/MostSell';
+import Services from './Pages/Services/Services';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
             <ManageProduct></ManageProduct>
           </PrivateRoute>}>
         </Route>
+        <Route path='/services' element={<Services></Services>}></Route>
+        <Route path='/mostsells' element={<MostSell></MostSell>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
