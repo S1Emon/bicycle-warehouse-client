@@ -37,8 +37,6 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
-
-
     const resetPassword = async () => {
         const email = emailFel.current.value;
         if (email) {
