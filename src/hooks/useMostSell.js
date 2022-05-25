@@ -4,7 +4,7 @@ const useMostSell = () => {
     const [mostSells, setMostSells] = useState();
 
     useEffect(() => {
-        fetch("http://localhost:5000/mostsell")
+        fetch("https://shrouded-brook-15177.herokuapp.com/mostsell")
             .then(res => res.json())
             .then(data => setMostSells(data))
     }, [])

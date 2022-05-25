@@ -44,7 +44,7 @@ export default function UpdateModal({ id, setIsUpdate, isUpdate }) {
         const quantity = event.target.quantity.value;
         const supplier = event.target.supplier.value;
 
-        const url = `http://localhost:5000/product/${id}`
+        const url = `https://shrouded-brook-15177.herokuapp.com/product/${id}`
         fetch(url, {
             method: "PUT",
             headers: {

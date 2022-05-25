@@ -11,7 +11,7 @@ const ManageProduct = () => {
     const [isUpdate, setIsUpdate] = useState();
 
     useEffect(() => {
-        const url = `http://localhost:5000/product/${productId}`;
+        const url = `https://shrouded-brook-15177.herokuapp.com/product/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,7 @@ const ManageProduct = () => {
     const handleDelete = (id) => {
         const confirm = window.confirm('Are you sure?');
         if (confirm) {
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`https://shrouded-brook-15177.herokuapp.com/product/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

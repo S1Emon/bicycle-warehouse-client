@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
-        const url = `http://localhost:5000/product`
+        const url = `https://shrouded-brook-15177.herokuapp.com/product`
         fetch(url, {
             method: "POST",
             headers: {
