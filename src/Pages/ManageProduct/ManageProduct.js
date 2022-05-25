@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import UpdateModal from '../UpdateProduct/UpdateProduct';
 
 const ManageProduct = () => {
     // const [products, setProducts] = useProducts();
@@ -28,7 +29,8 @@ const ManageProduct = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     setIsDelete(!isDelete);
-                    toast(data.success, "Product Deleted");
+                    toast(data.success);
+                    toast("Product Deleted");
                 });
         }
     }
@@ -48,7 +50,8 @@ const ManageProduct = () => {
                             <p className='card-text'>Supplier: {product.supplier}</p>
                         </div>
                         <div>
-                            <button className="btn btn-outline-primary w-50">Update Now</button>
+                            <div className='btn w-50 p-0'> <UpdateModal setIsUpdate={setIsUpdate} isUpdate={isUpdate} id={product._id}></UpdateModal></div>
+
 
                             <button onClick={() => handleDelete(product._id)} className="btn btn-outline-danger w-50">Delete</button>
                         </div>
