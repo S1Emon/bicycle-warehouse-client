@@ -18,7 +18,7 @@ const ManageProduct = () => {
                 setProduct(data)
             });
 
-    }, [])
+    }, [productId])
 
     const handleDelete = (id) => {
         const confirm = window.confirm('Are you sure?');
